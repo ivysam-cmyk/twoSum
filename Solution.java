@@ -8,6 +8,7 @@ class Solution {
         for(int i =0; i<nums.length-1; i++){
             int reqVal = target - nums[i];
             System.out.println("reqVal: "+reqVal);
+            //* CONVERT INTEGER ARRAY TO LIST */
             List<Integer> numsList =  Arrays.stream(nums).boxed().collect(Collectors.toList());
             //slice
             numsList = numsList.subList(i+1,nums.length);
@@ -22,9 +23,7 @@ class Solution {
             }
             System.out.println("i: "+i);
             System.out.println("reqIndex: "+reqIndex);
-            twoNums[0] = i;
-            twoNums[1] = reqIndex;
-            return twoNums;
+            return new int[]{i,reqIndex};
         }
         return twoNums;
     }
