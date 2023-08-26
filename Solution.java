@@ -1,31 +1,20 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.HashMap;
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] twoNums = new int[2];
-        for(int i =0; i<nums.length-1; i++){
-            int reqVal = target - nums[i];
-            System.out.println("reqVal: "+reqVal);
-            //* CONVERT INTEGER ARRAY TO LIST */
-            List<Integer> numsList =  Arrays.stream(nums).boxed().collect(Collectors.toList());
-            //slice
-            numsList = numsList.subList(i+1,nums.length);
-            // System.out.println("numsList: "+numsList);
-            int reqIndex;
-            //if the reqVal isn't in numsList skip this value of i
-            if(numsList.indexOf(reqVal) == -1){
-                continue;
-            } else{
-                // i+1 accounts for the slicing above
-                reqIndex = numsList.indexOf(reqVal) +(i+1);
-            }
-            System.out.println("i: "+i);
-            System.out.println("reqIndex: "+reqIndex);
-            return new int[]{i,reqIndex};
+        //create hashmap
+        //key is complement and value is the index
+        HashMap<Integer,Integer> complementMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            //populate hashmap by going through the nums arr
+            complementMap.put(target- nums[i], i);
         }
-        return twoNums;
+        //once map is filled up go through the nums arr again and check the if the key is present in the other indexes
+        //to do this: for each value(index) in the map, check all the other indexes in the nums arr whether it == key
+        for (int i = 0; i < nums.length; i++) {
+
+        }
     }
     public static void main(String[] args) {
         Solution s = new Solution();
