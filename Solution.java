@@ -4,10 +4,11 @@ class Solution {
         //take 1st element and use the next elements and sum until you get the answer
         int[] twoNums = new int[2];
         for(int i =0; i<nums.length-1; i++){
-            for(int j = i+1; j>i && j<nums.length; j++){
-                System.out.println("i: "+ i + " j: "+ j);
-                System.out.println(nums[i]+ nums[j]);
-                if(nums[i] + nums[j] == target){
+            int reqVal = target - nums[i];
+            System.out.println("reqVal: "+reqVal);
+            for (int j=i+1;j>i && j<nums.length; j++) {
+                System.out.println("i: " + i + " j: " + j);
+                if (nums[j]==reqVal){
                     twoNums[0] = i;
                     twoNums[1] = j;
                     return twoNums;
